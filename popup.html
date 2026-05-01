@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Reels AutoBot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🤖 Reels AutoBot</h1>
+    </div>
+
+    <!-- Status -->
+    <div class="status-section">
+      <div class="status-indicator" id="statusIndicator"></div>
+      <span id="statusText">Đã tắt</span>
+    </div>
+
+    <!-- Toggle Button -->
+    <button class="toggle-btn" id="toggleBtn">Bật Automation</button>
+
+    <!-- Keyboard Shortcut -->
+    <div class="shortcut-info">
+      ⌨️ Phím tắt: Alt + Q
+    </div>
+
+    <!-- Comments Section -->
+    <div class="comments-section">
+      <h3>💬 Danh sách Comment (Xác suất: 45%)</h3>
+      
+      <!-- Add Comment Form -->
+      <div class="form-group">
+        <input 
+          type="text" 
+          id="commentInput" 
+          placeholder="Nhập comment mới..."
+          maxlength="200"
+        >
+        <button id="addBtn" class="add-btn">+ Thêm</button>
+      </div>
+
+      <!-- Comments List -->
+      <div id="commentsList" class="comments-list">
+        <p class="empty-message">Chưa có comment nào</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <small>v1.0.0 | Alt+Q để bật/tắt</small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
