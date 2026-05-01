@@ -8,49 +8,41 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <div class="header">
       <h1>🤖 Reels AutoBot</h1>
     </div>
 
-    <!-- Status -->
     <div class="status-section">
       <div class="status-indicator" id="statusIndicator"></div>
       <span id="statusText">Đã tắt</span>
     </div>
 
-    <!-- Toggle Button -->
-    <button class="toggle-btn" id="toggleBtn">Bật Automation</button>
+    <button class="toggle-btn" id="toggleBtn">▶ Bật</button>
 
-    <!-- Keyboard Shortcut -->
     <div class="shortcut-info">
-      ⌨️ Phím tắt: Alt + Q
+      ⌨️ Alt + Q
     </div>
 
-    <!-- Comments Section -->
     <div class="comments-section">
-      <h3>💬 Danh sách Comment (Xác suất: 45%)</h3>
+      <h3>💬 Comment</h3>
       
-      <!-- Add Comment Form -->
       <div class="form-group">
         <input 
           type="text" 
           id="commentInput" 
-          placeholder="Nhập comment mới..."
-          maxlength="200"
+          placeholder="Thêm comment..."
+          maxlength="150"
         >
-        <button id="addBtn" class="add-btn">+ Thêm</button>
+        <button id="addBtn" class="add-btn">+</button>
       </div>
 
-      <!-- Comments List -->
       <div id="commentsList" class="comments-list">
-        <p class="empty-message">Chưa có comment nào</p>
+        <p class="empty-message">Trống</p>
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-      <small>v1.0.0 | Alt+Q để bật/tắt</small>
+      v1.0 | Alt+Q
     </div>
   </div>
 
