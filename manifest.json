@@ -34,40 +34,4 @@
       "description": "Bật/tắt automation"
     }
   }
-}{
-  "manifest_version": 3,
-  "name": "Facebook Reels AutoBot",
-  "version": "1.0.0",
-  "description": "Tự động xem và comment Reels Facebook",
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "tabs"
-  ],
-  "host_permissions": [
-    "https://www.facebook.com/*"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://www.facebook.com/reels/*"],
-      "js": ["content.js"],
-      "run_at": "document_start"
-    }
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Facebook Reels AutoBot"
-  },
-  "commands": {
-    "toggle-automation": {
-      "suggested_key": {
-        "default": "Alt+Q"
-      },
-      "description": "Bật/tắt automation"
-    }
-  }
 }
