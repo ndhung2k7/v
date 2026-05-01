@@ -15,6 +15,15 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// ✅ Thêm hàm wrapper để convert callback -> Promise
+function getStorageAsync(key) {
+  return new Promise((resolve) => {
+    chrome.storage.local.get(key, (data) => {
+      resolve(data);
+    });
+  });
+}
+
 async function typeText(element, text) {
   element.focus();
   
@@ -49,7 +58,7 @@ async function findAndClickCommentButton() {
   console.log("[ReelsBot] Tìm nút comment...");
   
   // Tìm comment icon/button dựa vào aria-label
-  const commentButtons = document.querySelectorAll('[aria-label*="omment"], [aria-label*="omment"]');
+  const commentButtons = document.querySelectorAll('[aria-label*="omment"]');
   
   if (commentButtons.length > 0) {
     for (let btn of commentButtons) {
@@ -217,16 +226,15 @@ async function automationLoop() {
       );
       
       if (shouldComment) {
-        // Lấy danh sách comment
-        chrome.storage.local.get("comments", async (data) => {
-          const comments = data.comments || [];
-          if (comments.length > 0) {
-            const randomComment = getRandomComment(comments);
-            await postComment(randomComment);
-          } else {
-            console.log("[ReelsBot] Danh sách comment trống");
-          }
-        });
+        // ✅ SỬA: Đợi storage trước
+        const data = await getStorageAsync("comments");
+        const comments = data.comments || [];
+        if (comments.length > 0) {
+          const randomComment = getRandomComment(comments);
+          await postComment(randomComment);
+        } else {
+          console.log("[ReelsBot] Danh sách comment trống");
+        }
         
         // Đợi comment xong
         await sleep(getRandomDelay(3000, 5000));
